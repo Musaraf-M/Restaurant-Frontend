@@ -1,27 +1,38 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.sc-ion-searchbar-md-h {
+  --box-shadow: none;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+#restaurants {
+  h2 {
+    padding: 0px 15px;
+    margin-bottom: 10px;
+  }
 
-  color: #8c8c8c;
-
-  margin: 0;
+  ion-list {
+    ion-item {
+      margin-bottom: 25px;
+      div {
+        h5 {
+          margin: 0px;
+        }
+        p {
+          margin: 0;
+          margin-top: 10px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
 }
 
-#container a {
-  text-decoration: none;
+.filters {
+  overflow: auto;
+  white-space: nowrap;
+  height: 50px;
 }

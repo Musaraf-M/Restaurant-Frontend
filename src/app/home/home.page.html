@@ -1,20 +1,191 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <!-- Heading -->
+    <div class="heading">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <h1>Restaurant Finder</h1>
+
+        <ion-button>
+            <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+        </ion-button>
+
+    </div>
+
+    <!-- Location Change -->
+    <ion-item button>
+        <ion-label slot="start">
+            Location
+        </ion-label>
+        <ion-label slot="end">
+            <strong>Chennai</strong>
+        </ion-label>
+    </ion-item>
+
+    <!-- Searchbar -->
+    <ion-searchbar showCancelButton="focus"></ion-searchbar>
+
+    <!-- Horizontal Scolling -->
+    <div class="filters">
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+            <ion-label color="dark">Restaurant</ion-label>
+        </ion-chip>
+
+
+
+    </div>
+
+    <!-- Restaurants -->
+
+    <div id="restaurants">
+
+        <h2>Restaurants</h2>
+
+        <ion-list>
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+            <!-- Restaurant Item -->
+            <ion-item button>
+                <div>
+                    <h5>Restaurant Name</h5>
+                    <p>Locality</p>
+                    <div class="info">
+                        <ion-chip color="success">
+                            <ion-label>South Indian</ion-label>
+                        </ion-chip>
+                        <ion-chip color="warning">
+                            <ion-label>Non-veg</ion-label>
+                        </ion-chip>
+                    </div>
+                </div>
+            </ion-item>
+
+
+        </ion-list>
+    </div>
+
 </ion-content>
