@@ -1,26 +1,55 @@
 <ion-content [fullscreen]="true">
 
-  <div class="heading">
-    <h1>Sign up</h1>
+  <div class="wrapper">
+    <h1 class="heading-1">Signup</h1>
+
+    <div class="list-wrapper">
+      <!-- Singup form-->
+      <form [formGroup]="signupForm" (ngSubmit)="submit()" class="signup-input">
+        <ion-list>
+          <!-- Username input-->
+          <ion-item>
+            <ion-input formControlName="username" type="text" placeholder="Name"></ion-input>
+          </ion-item>
+          <!-- Name validation error message -->
+          <div *ngFor="let error of errorMessages.username">
+            <ng-container *ngIf="username.hasError(error.type) && (username.dirty || username.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+
+          <ion-item>
+            <!-- email input-->
+            <ion-input formControlName="email" type="Email" placeholder="Email ID"></ion-input>
+          </ion-item>
+          <!-- Email validation error message -->
+          <div *ngFor="let error of errorMessages.email">
+            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <!-- Password input-->
+            <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+          </ion-item>
+          <!-- Password validation error message -->
+          <div *ngFor="let error of errorMessages.password">
+            <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </ion-list>
+
+      </form>
+
+      <!-- Submit form -->
+      <ion-button expand="block" (click)="signUpUser()" [disabled]="!signupForm.valid">Signup</ion-button>
+
+      <!-- Toggle again to login -->
+      <ion-button fill="clear" expand="block" (click)="navToLogin()">Already a user? Login</ion-button>
+
+    </div>
   </div>
-
-  <ion-item>
-    <ion-label position="floating">Email id</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-button expand="block">Signup</ion-button>
-
-  <ion-button fill="clear" expand="block">Already a user? Login</ion-button>
-
 </ion-content>
