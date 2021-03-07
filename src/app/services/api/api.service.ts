@@ -14,7 +14,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class ApiService {
   private localIp = 'http://localhost:8010';
-  private productionIp = 'https://mangoleap-restaurantfinder.herokuapp.com';
+  private productionIp = 'https://stormy-thicket-53012.herokuapp.com';
   private currentIp: string = this.productionIp;
 
   constructor(
