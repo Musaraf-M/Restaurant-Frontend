@@ -1,0 +1,39 @@
+.heading::first-letter {
+  margin-top: 25px;
+  text-transform: capitalize;
+  h1,h6
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+}
+
+.address {
+  padding: 0px 16px;
+  padding-top: 15px;
+
+  h1,
+  p {
+    margin: 0;
+  }
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 10px 6px;
+  }
+}
+
+.menu {
+    padding-top: 15px;
+    h1 {
+        padding: 0px 16px;
+    }
+}

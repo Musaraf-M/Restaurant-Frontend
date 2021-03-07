@@ -1,0 +1,48 @@
+<ion-content *ngIf=(this.details)>
+
+  <!-- Restaurant detail -->
+  <div class="heading">
+    <!-- Restaurent name -->
+    <h1>{{this.details.name}}</h1>
+    <!-- Restaurant description -->
+    <h6>{{this.details.description}}</h6>
+    <!-- Restaurant city -->
+    <p>{{this.details.city}}</p>
+    <div class="info">
+      <ion-chip color="success">
+        <!-- Available cuisine -->
+        <ion-label>{{this.details.cuisine}}</ion-label>
+      </ion-chip>
+      <ion-chip color="warning">
+        <!-- Available type -->
+        <ion-label>{{this.details.restaurantType}}</ion-label>
+      </ion-chip>
+    </div>
+  </div>
+
+  <!-- Address -->
+  <div class="address">
+    <h1>Address</h1>
+    <p>{{this.details.address}}</p>
+    <p>{{this.details.city}}, TamilNadu, India</p>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu">
+    <h1>Menu</h1>
+    <ion-list>
+      <!-- Food Item -->
+      <ion-item *ngFor="let dish of dishes; index as i">
+        <div>
+          <!-- Dish name -->
+          <h4>{{dish.name}}</h4>
+          <!-- Dish description -->
+          <p>{{dish.description}}</p>
+        </div>
+        <!-- Dish cost -->
+        <h3 slot="end">{{this.lists[i]}}</h3>
+      </ion-item>
+      </ion-list>
+  </div>
+
+</ion-content>
