@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit() {
+  // Location Clicked
+  locationClicked(city: string): void {
+    localStorage.setItem('CITY', city);
+    this.router.navigate(['home']);
   }
-
 }

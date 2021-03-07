@@ -5,16 +5,16 @@
   </div>
 
   <ion-list>
-
-    <ion-item button>
+    <!-- Display city to filter -->
+    <ion-item button (click)="locationClicked('chennai')">
       Chennai
     </ion-item>
 
-    <ion-item button>
+    <ion-item button (click)="locationClicked('madurai')">
       Madurai
     </ion-item>
 
-    <ion-item button>
+    <ion-item button (click)="locationClicked('coimbatore')">
       Coimbatore
     </ion-item>
 
