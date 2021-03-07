@@ -18,13 +18,15 @@
     ion-item {
       margin-bottom: 25px;
       div {
-        h5 {
+        h5::first-letter {
           margin: 0px;
+          text-transform: capitalize;
         }
-        p {
+        p::first-letter {
           margin: 0;
           margin-top: 10px;
           margin-bottom: 5px;
+          text-transform: capitalize;
         }
       }
     }

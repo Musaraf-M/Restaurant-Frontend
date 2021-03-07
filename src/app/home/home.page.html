@@ -5,57 +5,52 @@
 
         <h1>Restaurant Finder</h1>
 
-        <ion-button>
+        <!-- log out -->
+        <ion-button (click)="logout()">
             <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
         </ion-button>
 
     </div>
 
     <!-- Location Change -->
-    <ion-item button>
+    <ion-item button (click)="changeLocation()">
         <ion-label slot="start">
             Location
         </ion-label>
         <ion-label slot="end">
-            <strong>Chennai</strong>
+            <strong>{{location}}</strong>
         </ion-label>
     </ion-item>
 
     <!-- Searchbar -->
-    <ion-searchbar showCancelButton="focus"></ion-searchbar>
+    <ion-searchbar showCancelButton="focus" [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
 
     <!-- Horizontal Scolling -->
     <div class="filters">
 
+        <!-- chip popover cuisine -->
         <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
+            <ion-label color="dark">Cuisine</ion-label>
+            <ion-select [(ngModel)]="selected_value_cuisine" (ionChange)="GetselectedCuisine(selected_value_cuisine)"
+                [ngModelOptions]="{standalone: true}">
+                <ion-select-option value="north-indian">North-Indian</ion-select-option>
+                <ion-select-option value="south-indian">South-Indian</ion-select-option>
+                <ion-select-option value="chinese">Chinese</ion-select-option>
+                <ion-select-option value="arabian">Arabian</ion-select-option>
+                <ion-select-option value="all">All</ion-select-option>
+            </ion-select>
         </ion-chip>
 
+        <!-- Chip popover type -->
         <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
+            <ion-label color="dark">Type</ion-label>
+            <ion-select [(ngModel)]="selected_value_type" (ionChange)="GetselectedType(selected_value_type)"
+                [ngModelOptions]="{standalone: true}">
+                <ion-select-option value="non-veg">Non-veg</ion-select-option>
+                <ion-select-option value="veg">veg</ion-select-option>
+                <ion-select-option value="any">Any</ion-select-option>
+            </ion-select>
         </ion-chip>
-
-        <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
-        </ion-chip>
-
-        <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
-        </ion-chip>
-
-        <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
-        </ion-chip>
-
-        <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
-        </ion-chip>
-
-        <ion-chip color="primary" outline="true">
-            <ion-label color="dark">Restaurant</ion-label>
-        </ion-chip>
-
-
 
     </div>
 
@@ -67,124 +62,40 @@
 
         <ion-list>
 
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
+            <!-- Restaurant Item by default-->
+            <div *ngIf="!searchTerm">
+                <ion-item button *ngFor="let restaurant of restaurants" (click)="restautantDetailNav(restaurant._id)">
+                    <div>
+                        <h5>{{restaurant.name}}</h5>
+                        <p>{{restaurant.city}}</p>
+                        <div class="info">
+                            <ion-chip color="success">
+                                <ion-label>{{restaurant.cuisine}}</ion-label>
+                            </ion-chip>
+                            <ion-chip color="warning">
+                                <ion-label>{{restaurant.restaurantType}}</ion-label>
+                            </ion-chip>
+                        </div>
                     </div>
-                </div>
-            </ion-item>
-
-
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
+                </ion-item>
+            </div>
+            <!-- Restaurant Item if searched -->
+            <div *ngIf="searchTerm">
+                <ion-item button *ngFor="let filter of filters" (click)="restautantDetailNav(filter._id)">
+                    <div>
+                        <h5>{{filter.name}}</h5>
+                        <p>{{filter.city}}</p>
+                        <div class="info">
+                            <ion-chip color="success">
+                                <ion-label>South Indian</ion-label>
+                            </ion-chip>
+                            <ion-chip color="warning">
+                                <ion-label>Non-veg</ion-label>
+                            </ion-chip>
+                        </div>
                     </div>
-                </div>
-            </ion-item>
-
-
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
-                    </div>
-                </div>
-            </ion-item>
-
-
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
-                    </div>
-                </div>
-            </ion-item>
-
-
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
-                    </div>
-                </div>
-            </ion-item>
-
-
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
-                    </div>
-                </div>
-            </ion-item>
-
-            <!-- Restaurant Item -->
-            <ion-item button>
-                <div>
-                    <h5>Restaurant Name</h5>
-                    <p>Locality</p>
-                    <div class="info">
-                        <ion-chip color="success">
-                            <ion-label>South Indian</ion-label>
-                        </ion-chip>
-                        <ion-chip color="warning">
-                            <ion-label>Non-veg</ion-label>
-                        </ion-chip>
-                    </div>
-                </div>
-            </ion-item>
-
-
+                </ion-item>
+            </div>
         </ion-list>
     </div>
 
