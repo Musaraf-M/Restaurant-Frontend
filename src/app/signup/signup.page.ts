@@ -83,9 +83,9 @@ export class SignupPage implements OnInit {
   // Create an account for the user
   signUpUser(): void {
     const cred = {
-      email: 'user@user.com',
-      name: 'UserName',
-      password: 'Useruser@00',
+      email: this.signupForm.get('email').value,
+      name: this.signupForm.get('username').value,
+      password: this.signupForm.get('password').value,
     };
 
     // Hit api to create user
