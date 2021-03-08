@@ -66,7 +66,10 @@
         <h2>Restaurants</h2>
 
         <ion-list>
-
+            <div *ngIf="!restaurants || restaurants.length === 0"> 
+                <img class="image" src="../../assets/undraw_cooking_lyxy.svg" alt="">
+                <h5 class="txt">No restaurant available</h5>
+            </div>
             <!-- Restaurant Item by default-->
             <div *ngIf="!searchTerm">
                 <ion-item button *ngFor="let restaurant of restaurants" (click)="restautantDetailNav(restaurant._id)">
@@ -83,9 +86,15 @@
                         </div>
                     </div>
                 </ion-item>
+                
             </div>
+
             <!-- Restaurant Item if searched -->
             <div *ngIf="searchTerm">
+                <div *ngIf="!filters || filters.length === 0"> 
+                    <img class="image" src="../../assets/undraw_cooking_lyxy.svg" alt="">
+                    <h5 class="txt">No restaurant available</h5>
+                </div>
                 <ion-item button *ngFor="let filter of filters" (click)="restautantDetailNav(filter._id)">
                     <div>
                         <h5>{{filter.name}}</h5>

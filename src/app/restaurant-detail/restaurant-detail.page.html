@@ -38,6 +38,7 @@
     <h1>Menu</h1>
     <ion-list>
       <!-- Food Item -->
+      
       <ion-item *ngFor="let dish of dishes; index as i">
         <div>
           <!-- Dish name -->
@@ -46,9 +47,14 @@
           <p>{{dish.description}}</p>
         </div>
         <!-- Dish cost -->
-        <h3 slot="end">{{this.lists[i]}}</h3>
+        <h3 slot="end">₹{{this.lists[i]}}</h3>
       </ion-item>
     </ion-list>
+    
+  </div>
+  <div *ngIf="!dishes || dishes.length === 0">
+    <img class="image" src="../../assets/undraw_cooking_lyxy.svg" alt="">
+    <h5 class="txt">No dishes available</h5>
   </div>
 
 </ion-content>

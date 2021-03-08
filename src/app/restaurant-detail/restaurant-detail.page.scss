@@ -1,13 +1,15 @@
-.heading::first-letter {
+.heading {
   margin-top: 25px;
-  text-transform: capitalize;
+  
   h1,
-  h6 p {
+  h6::first-letter {
     margin: 0;
+    text-transform: capitalize;
   }
 
-  h1 {
+  h1::first-letter {
     margin-bottom: 10px;
+    text-transform: capitalize;
   }
   p {
     margin-bottom: 5px;
@@ -18,6 +20,7 @@
 .address {
   padding: 0px 16px;
   padding-top: 15px;
+  text-transform: capitalize;
 
   h1,
   p {
@@ -29,6 +32,7 @@
 
   p {
     margin: 10px 6px;
+    text-transform: capitalize;
   }
 }
 
@@ -37,9 +41,20 @@
   h1 {
     padding: 0px 16px;
   }
+  
 }
 .btn-position{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.image {
+  width: 10em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.txt{
+  text-align: center;
 }

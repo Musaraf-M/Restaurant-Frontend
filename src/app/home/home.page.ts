@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
   restaurants: RestaurantData[];
   filters: RestaurantData[];
 
+  value: boolean = true;
   constructor(
     private router: Router,
     private api: ApiService,
@@ -50,7 +51,7 @@ export class HomePage implements OnInit {
   getRestaurantData(): void {
     this.api.getRestaurantData({ city: this.location }).subscribe((data) => {
       this.restaurants = data as RestaurantData[];
-    });
+    });  
   }
 
   // Change Location
@@ -111,7 +112,7 @@ export class HomePage implements OnInit {
   // Log user out
   logout(): void {
     this.auth.removeToken();
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
   }
 
   // Referesher

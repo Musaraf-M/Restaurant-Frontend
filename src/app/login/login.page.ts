@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
     ],
     password: [
       { type: 'required', message: 'Password is required' },
-      { type: 'pattern', message: 'Password doesn\'t match requirement' },
+      { type: 'pattern', message: 'Password must have minimum 6 characters,one upper and one lower character with a special character' },
     ],
   };
 
@@ -46,7 +46,14 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const data = this.auth.getTokendata();
+    if (data['role'] == 'user') {
+      this.router.navigate(['home']);
+    } else {
+      this.router.navigate(['']);
+    }
+  }
 
   // Get user email
   get email(): AbstractControl {

@@ -15,6 +15,15 @@
   }
 
   ion-list {
+    .image {
+      width: 10em;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .txt{
+      text-align: center;
+    }
     ion-item {
       margin-bottom: 25px;
       div {
