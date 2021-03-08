@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 
 interface RestaurantData {
@@ -34,12 +35,16 @@ export class RestaurantDetailPage implements OnInit {
 
   lists: number[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.restaurantID = localStorage.getItem('RESTAURANT');
     this.getDetails(this.restaurantID);
     this.getMenu(this.restaurantID);
+  }
+
+  navhome() {
+    this.router.navigate(['home']);
   }
 
   async getDetails(value): Promise<void> {

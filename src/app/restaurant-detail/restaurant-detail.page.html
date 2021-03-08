@@ -3,7 +3,13 @@
   <!-- Restaurant detail -->
   <div class="heading">
     <!-- Restaurent name -->
-    <h1>{{this.details.name}}</h1>
+    <div class="btn-position">
+      <h1>{{this.details.name}}</h1>
+      <!-- Back to home -->
+      <ion-button fill="clear" (click)="navhome()">
+        Done
+      </ion-button>
+    </div>
     <!-- Restaurant description -->
     <h6>{{this.details.description}}</h6>
     <!-- Restaurant city -->
@@ -42,7 +48,7 @@
         <!-- Dish cost -->
         <h3 slot="end">{{this.lists[i]}}</h3>
       </ion-item>
-      </ion-list>
+    </ion-list>
   </div>
 
 </ion-content>
