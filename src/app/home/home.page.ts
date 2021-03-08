@@ -25,7 +25,11 @@ export class HomePage implements OnInit {
   restaurants: RestaurantData[];
   filters: RestaurantData[];
 
-  constructor(private router: Router, private api: ApiService, private auth: AuthService) {}
+  constructor(
+    private router: Router,
+    private api: ApiService,
+    private auth: AuthService
+  ) {}
 
   // Search bar input
   public searchTerm: string = null;
@@ -61,21 +65,24 @@ export class HomePage implements OnInit {
     });
   }
 
-  //  Set filter 
+  //  Set filter
   setFilteredItems(): void {
     this.filters = this.filterItems(this.searchTerm);
   }
 
   // Filter with cuisine
-  GetselectedCuisine(selected_value_cuisine):void {
+  GetselectedCuisine(selected_value_cuisine): void {
     if (selected_value_cuisine == 'all') {
       this.getRestaurantData();
     } else {
-        this.api
-          .getRestaurantData({ cuisine: selected_value_cuisine })
-          .subscribe((data) => {
-            this.restaurants = data as RestaurantData[];
-          });
+      this.api
+        .getRestaurantData({
+          cuisine: selected_value_cuisine,
+          city: this.location,
+        })
+        .subscribe((data) => {
+          this.restaurants = data as RestaurantData[];
+        });
     }
   }
 
@@ -85,7 +92,10 @@ export class HomePage implements OnInit {
       this.getRestaurantData();
     } else {
       this.api
-        .getRestaurantData({ restaurantType: selected_value_type })
+        .getRestaurantData({
+          restaurantType: selected_value_type,
+          city: this.location,
+        })
         .subscribe((data) => {
           this.restaurants = data as RestaurantData[];
         });
@@ -93,14 +103,20 @@ export class HomePage implements OnInit {
   }
 
   // Page navigation on restaurant detail
-  restautantDetailNav(data): void{
+  restautantDetailNav(data): void {
     localStorage.setItem('RESTAURANT', data);
     this.router.navigate(['restaurant-detail']);
   }
 
   // Log user out
-  logout(): void{
+  logout(): void {
     this.auth.removeToken();
     this.router.navigate(['login']);
+  }
+
+  // Referesher
+  doRefresh(event) {
+    this.ngOnInit();
+    event.target.complete();
   }
 }
